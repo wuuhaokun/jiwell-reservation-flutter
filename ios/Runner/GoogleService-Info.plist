@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1006228259425-kqs6b5nn7gmt1e3iadd8i8a9qm17da1c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1006228259425-kqs6b5nn7gmt1e3iadd8i8a9qm17da1c</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAXqb217hN8-uITLlOZwZufQXEl_ixzbkg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1006228259425</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.carplus.usedcar</string>
+	<key>PROJECT_ID</key>
+	<string>jiwellreservation</string>
+	<key>STORAGE_BUCKET</key>
+	<string>jiwellreservation.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1006228259425:ios:373b5f5cb03ff73f812020</string>
+	<key>DATABASE_URL</key>
+	<string>https://jiwellreservation.firebaseio.com</string>
+</dict>
+</plist>
