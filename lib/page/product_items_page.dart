@@ -18,9 +18,10 @@ import 'dart:convert';
 /// app 項目顯示主頁
 
 class ProductItemsPage extends StatefulWidget {
+  final String name;
   final String id;
   final String incategory;
-  const ProductItemsPage({this.id,this.incategory});
+  const ProductItemsPage({this.name,this.id,this.incategory});
   @override
   _ProductItemsPageState createState() => _ProductItemsPageState();
 }
@@ -41,7 +42,7 @@ class _ProductItemsPageState extends State<ProductItemsPage>
   ///返回不同头部
   Widget _getHeader() {
       return CommonBackTopBar(
-          title: '详情', onBack: () => Navigator.pop(context));
+          title: widget.name + '-品項', onBack: () => Navigator.pop(context));
   }
 
   @override

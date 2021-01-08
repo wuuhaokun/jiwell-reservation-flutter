@@ -39,7 +39,9 @@ class CardSpus extends StatelessWidget {
             descript: goodsModleDataList[i].subTitle,
             number: '100',//+goodsModleDataList[i].stock.toString(),
             clickCallback: (param){
-              Routes.instance.navigateTo(context, Routes.comment_page);
+              String spuId = goodsModleDataList[i].id.toString();
+              final Map<String, dynamic> p = {'supId':spuId};
+              Routes.instance.navigateToParams(context,Routes.comment_page,params: p);
             },
           )
       )

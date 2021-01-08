@@ -85,6 +85,11 @@ class ThemeDecoration{
       borderRadius: BorderRadius.circular(8)
   );
 
+  static final card3 = BoxDecoration(
+      color: Colors.blue,
+      borderRadius: BorderRadius.circular(6)
+  );
+
   static final outlineBtn = BoxDecoration(
     border: Border.all(color: ThemeColor.appBarTopBg),
     borderRadius:BorderRadius.circular(20),
@@ -93,6 +98,11 @@ class ThemeDecoration{
   static final outlineCancelBtn = BoxDecoration(
     border: Border.all(color: Color(0xffcccccc)),
     borderRadius:BorderRadius.circular(20),
+  );
+
+  static final outlineCancelBtn1 = BoxDecoration(
+    border: Border.all(color: Color(0xffcccccc)),
+    borderRadius:BorderRadius.circular(10),
   );
 }
 

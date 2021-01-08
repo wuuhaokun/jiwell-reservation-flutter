@@ -50,3 +50,4 @@ class CardGoods extends StatelessWidget {
    Routes.instance.navigateToParams(context,Routes.PRODUCT_DETAILS,params: p);
   }
 }
+

@@ -3,14 +3,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_easyrefresh/material_footer.dart';
 import 'package:jiwell_reservation/dao/hot_goods_dao.dart';
+import 'package:jiwell_reservation/dao/new/sec_kill_dao.dart';
 import 'package:jiwell_reservation/dao/new_goods_dao.dart';
 import 'package:jiwell_reservation/dao/topic_query_dao.dart';
+import 'package:jiwell_reservation/models/details_entity.dart';
 import 'package:jiwell_reservation/models/hot_entity.dart';
 import 'package:jiwell_reservation/models/new/spus_entity.dart';
+import 'package:jiwell_reservation/models/new/wsku_entity.dart';
 import 'package:jiwell_reservation/models/topic_goods_query_entity.dart';
 import 'package:jiwell_reservation/page/card_goods.dart';
 import 'package:jiwell_reservation/page/load_state_layout.dart';
 import 'package:jiwell_reservation/page/new/card_spus.dart';
+import 'package:jiwell_reservation/page/new/spu_swiper_diy.dart';
+import 'package:jiwell_reservation/page/swiper_diy.dart';
 import 'package:jiwell_reservation/page/topic_card_goods.dart';
 import 'package:jiwell_reservation/res/colours.dart';
 import 'package:jiwell_reservation/utils/app_size.dart';
@@ -57,6 +62,8 @@ class _SpuFindingTabViewState extends State<SpuFindingTabView> with AutomaticKee
   List<IncategoryModel> mixGoodList = <IncategoryModel>[];
  //List<List<SpusModel>> mixGoodList = <List<SpusModel>>[];
   bool _isLoading = false;
+
+  List<WskuModel> secKillskuModelList = [];
 
   @override
   void initState() {
@@ -141,6 +148,14 @@ class _SpuFindingTabViewState extends State<SpuFindingTabView> with AutomaticKee
       _isLoading = false;
       _layoutState = LoadState.State_Success;
     }
+
+    final WskuEntity entity = await SecKillDao.fetch();
+    if(entity?.wskuModelList != null){
+      setState(() {
+        secKillskuModelList.clear();
+        secKillskuModelList = entity.wskuModelList;
+      });
+    }
   }
 
   Widget _getHotData(){
@@ -154,7 +169,7 @@ class _SpuFindingTabViewState extends State<SpuFindingTabView> with AutomaticKee
               margin: const EdgeInsets.only(top: 10),
               height: AppSize.height(94),
               padding: const EdgeInsets.only(left: 10,top: 7),
-              child:  Text('热门推荐',
+              child:  Text('熱門推薦',
                 style: ThemeTextStyle.orderFormTitleStyle,)
           ),
           ThemeView.divider(),
@@ -214,8 +229,12 @@ class _SpuFindingTabViewState extends State<SpuFindingTabView> with AutomaticKee
       return [];
     }
     final List<Widget> widgetList = <Widget>[];
-    //final CategoryModel model = widget.categoryEntity.category[0];
-    //widgetList.add(SwiperDiy(swiperDataList:model.categoryInfoModels, width:double.infinity,height: AppSize.height(430)));
+
+    if(secKillskuModelList.length > 0) {
+      widgetList.add(SpuSwiperDiy(swiperDataList: secKillskuModelList,
+          width: double.infinity,
+          height: AppSize.height(320)));
+    }
 
     for(IncategoryModel incategoryModel in mixGoodList){
       if(incategoryModel.spusModellList == null){

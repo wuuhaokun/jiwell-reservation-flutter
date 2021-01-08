@@ -19,6 +19,8 @@ import 'package:jiwell_reservation/page/reg_and_login.dart';
 import 'package:jiwell_reservation/page/setting_page.dart';
 import 'package:jiwell_reservation/page/web_page.dart';
 import 'package:jiwell_reservation/page/product_items_page.dart';
+
+import '../page/new/use_coupon_page.dart';
 class Routes {
   static final router = FluroRouter();
   static const ROOT = '/';
@@ -86,7 +88,7 @@ class Routes {
     ModifyPwdPage()));
     router.define(
         product_items_page, handler:
-    Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) => ProductItemsPage(id:params['id'].first,incategory:params['incategory'].first)));
+    Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) => ProductItemsPage(name:params['name'].first,id:params['id'].first,incategory:params['incategory'].first)));
     router.define(
         car_page, handler:
     Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) => CartPage(from:params['from'].first)));
@@ -106,15 +108,16 @@ class Routes {
         coupon_page, handler: Handler(handlerFunc: (context, params) =>
         CouponPage()));
 
-    router.define(
-        comment_page, handler: Handler(handlerFunc: (context, params) =>
-        CommentPage()));
+    // router.define(
+    //     comment_page, handler: Handler(handlerFunc: (context, params) =>
+    //     CommentPage()));
 
     router.define(
         use_coupon_page, handler: Handler(handlerFunc: (context, params) =>
-        CouponPage()));
+        UseCouponPage()));
 
-
+    router.define(comment_page, handler:
+    Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) => CommentPage(supId:params['supId'].first)));
     // router.define(
     //     comment_page, handler:
     // Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) => CommentPage(themeId:params['themeId'].first)));

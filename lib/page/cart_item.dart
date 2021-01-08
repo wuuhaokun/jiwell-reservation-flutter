@@ -176,7 +176,6 @@ class CartItem extends StatelessWidget {
                   eventBus.fire(GoodsNumInEvent('state'));
                 },
               )),
-
       flex: 1,
     );
   }

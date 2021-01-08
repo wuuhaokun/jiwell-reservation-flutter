@@ -40,7 +40,7 @@ class _FeaturesSinglePopupState extends State<FeaturesSinglePopup> {
           tileBuilder: (context, state) {
             return S2Tile.fromState(
               state,
-              leading: const Icon(Icons.shopping_cart),
+              leading: const Icon(Icons.library_add_check),
             );
           },
         ),

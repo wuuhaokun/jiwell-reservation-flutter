@@ -47,7 +47,7 @@ class SubItemBrands extends StatelessWidget {
     BrandsModel brandsModel = goodsModleDataList[i];
     final String id = brandsModel.id.toString();
     final String incategory = brandsModel.incategory;
-    final Map<String, String> p = {'id':id,'incategory':incategory};
+    final Map<String, String> p = {'name':brandsModel.name,'id':id,'incategory':incategory};
     //Routes.instance.navigateToParams(context,Routes.PRODUCT_DETAILS,params: p);
     Routes.instance.navigateToParams(context,Routes.product_items_page,params: p);
   }

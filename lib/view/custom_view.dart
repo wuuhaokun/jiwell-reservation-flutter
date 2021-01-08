@@ -284,29 +284,37 @@ class SpusThemeCard extends StatelessWidget {
                     ),
                     flex: 3,
                   ),
+                  //activeMsg('滿100減10')
+                  // Expanded(
+                  //   child: Container(
+                  //     alignment:Alignment.center,
+                  //     height: AppSize.height(232),
+                  //     child:Text(
+                  //       number,
+                  //       textAlign: TextAlign.center,
+                  //       style: ThemeTextStyle.cardTitleStyle,
+                  //     ),
+                  //   ),
+                  //   flex: 1,
+                  // ),
                   Expanded(
                     child: Container(
                       alignment:Alignment.center,
-                      height: AppSize.height(232),
-                      child:Text(
-                        number,
-                        textAlign: TextAlign.center,
-                        style: ThemeTextStyle.cardTitleStyle,
-                      ),
+                      height: AppSize.height(100),
+                      child:activeMsg('滿100減10'),
                     ),
                     flex: 1,
-                  )
+                  ),
                 ],
               ),
-              Container(
-                width: double.infinity,
-                height: AppSize.height(2),
-                color: Colours.gray_f5,
-              ),
               _buildBottomBar(),
+              Container(
+                  width: double.infinity,
+                  height: AppSize.height(6),
+                  color: Colours.gray_f5,
+              ),
             ],
           )
-
     );
   }
 
@@ -392,6 +400,51 @@ class SpusThemeCard extends StatelessWidget {
     );
     //);
   }
+
+  Widget activeMsg(String text) {
+    return
+      Container(
+        height: 18,
+        padding: EdgeInsets.symmetric(horizontal: 4),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            borderRadius: new BorderRadius.circular(2.0),
+            color: Colours.lable_clour //rgba(255, 129, 2, 1)
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
+              color: Colours.white,
+              fontSize: 8
+          ),
+        ),
+      );
+  }
+
+  ///活动信息
+  // Widget activeMsg(String text) {
+  //   return text == null ? Container() : Positioned(
+  //     right: 0,
+  //     bottom: 5,
+  //     child: Container(
+  //       height: 16,
+  //       padding: EdgeInsets.symmetric(horizontal: 4),
+  //       alignment: Alignment.center,
+  //       decoration: BoxDecoration(
+  //           borderRadius: new BorderRadius.circular(2.0),
+  //           color: Colours.lable_clour //rgba(255, 129, 2, 1)
+  //       ),
+  //       child: Text(
+  //         text,
+  //         style: TextStyle(
+  //             color: Colours.white,
+  //             fontSize: 8
+  //         ),
+  //       ),
+  //     ),
+  //
+  //   );
+  // }
 }
 
 /// 商品卡片
@@ -509,10 +562,11 @@ class BrandsListViewThemeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: ScreenUtil().screenWidth - 20,
+        margin: EdgeInsets.only(left:6,right: 6),
+        width: ScreenUtil().screenWidth - AppSize.width(190),
         //width: double.infinity,
         height: double.infinity,
-        decoration: ThemeDecoration.card2,
+        decoration: ThemeDecoration.outlineCancelBtn1,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -579,81 +633,6 @@ class BrandsListViewThemeCard extends StatelessWidget {
           // )
         ],
       ),
-        // child: Row (
-        //   children: <Widget>[
-        //     Column(
-        //       crossAxisAlignment: CrossAxisAlignment.start,
-        //       children: <Widget>[
-        //         Expanded(
-        //           child:  Container(
-        //             width: AppSize.height(232) ,
-        //             height: AppSize.height(600),
-        //             margin: const EdgeInsets.only(left: 15),
-        //             child: ClipRRect(
-        //               borderRadius: const BorderRadius.only(
-        //                   topLeft: Radius.circular(8),
-        //                   topRight: Radius.circular(8)),
-        //               child: ImageUtils.getCachedNetworkImage(imgUrl,BoxFit.cover,null),
-        //               // child: Image.network(
-        //               //   imgUrl,
-        //               //   fit: BoxFit.cover,
-        //               // ),
-        //             ),
-        //           ),
-        //           flex: 2,
-        //         ),
-        //         Expanded(
-        //           child: Container(
-        //             margin: const EdgeInsets.only(left: 20.0, top: 10.0),
-        //             child: Column(
-        //                 crossAxisAlignment: CrossAxisAlignment.start,
-        //                 children: <Widget>[
-        //                   Text(
-        //                     title,
-        //                     overflow: TextOverflow.ellipsis,
-        //                     maxLines: 1,
-        //                     textAlign: TextAlign.left,
-        //                     style: ThemeTextStyle.cardTitleStyle,
-        //                   ),
-        //                   Text(
-        //                     descript,
-        //                     textAlign: TextAlign.left,
-        //                     overflow: TextOverflow.ellipsis,
-        //                     maxLines: 2,
-        //                     style: ThemeTextStyle.cardNumStyle,
-        //                   ),
-        //                   // Text(
-        //                   //   price,
-        //                   //   textAlign: TextAlign.left,
-        //                   //   style: ThemeTextStyle.cardPriceStyle,
-        //                   // ),
-        //                 ]
-        //             ),
-        //
-        //           ),
-        //           flex: 3,
-        //         ),
-        //         // Expanded(
-        //         //   child: Container(
-        //         //     alignment:Alignment.center,
-        //         //     height: AppSize.height(232),
-        //         //     child:Text(
-        //         //       number,
-        //         //       textAlign: TextAlign.center,
-        //         //       style: ThemeTextStyle.cardTitleStyle,
-        //         //     ),
-        //         //   ),
-        //         //   flex: 1,
-        //         // )
-        //       ],
-        //     ),
-        //     Container(
-        //       width: AppSize.height(2),
-        //       height: double.infinity ,
-        //       color: Colours.gray_f5,
-        //     )
-        //   ],
-        // )
 
     );
   }

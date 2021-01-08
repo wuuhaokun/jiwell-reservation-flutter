@@ -178,6 +178,7 @@ class SpuDetailModel {
 
 class WskuModel {
   int id;
+  int skuId;
   int spuId;
   String title;
   String images;
@@ -190,12 +191,13 @@ class WskuModel {
   String lastUpdateTime;
   int stock;
 
-  WskuModel({this.id,this.spuId,this.title,this.images,this.price,
+  WskuModel({this.id,this.skuId,this.spuId,this.title,this.images,this.price,
     this.ownSpec,this.description,this.indexes,this.enable,
     this.createTime,this.lastUpdateTime,this.stock,
   });
   WskuModel.fromJson(Map<String, dynamic> data) {
     id = (data['id']??-1);
+    skuId = (data['skuId']??-1);
     spuId = (data['spuId']??-1);
     title = (data['title']??'');
     images = (data['images']??'');
@@ -212,6 +214,7 @@ class WskuModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
       data['id'] = (id??-1);
+      data['skuId'] = (skuId??-1);
       data['spuId'] = (spuId??-1);
       data['title'] = (title??'');
       data['images'] = (images??'');

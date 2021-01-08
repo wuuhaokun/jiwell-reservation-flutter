@@ -33,15 +33,9 @@ class _CouponState extends State<Coupon> {
             child: ListView(
               padding: EdgeInsets.only(bottom: 80 + bottom),
               children: <Widget>[
-                CouponRow(null),
-                CouponRow(null),
-                CouponRow(null),
-                CouponRow(null),
-                CouponRow(null),
-                CouponRow(null),
-                CouponRow(null),
-                CouponRow(null),
-                CouponRow(null),
+                CouponRow(null,false),
+                CouponRow(null,false),
+                CouponRow(null,false),
               ],
             ),
           ),

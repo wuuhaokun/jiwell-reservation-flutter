@@ -27,9 +27,6 @@ class CouponDao{
       return null;
     }
   }
-
-
-
 }
 
 class UseCouponDao{

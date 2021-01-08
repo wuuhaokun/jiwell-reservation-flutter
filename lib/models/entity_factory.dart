@@ -28,6 +28,7 @@ import 'new/specifications_entity.dart';
 import 'new/spu_entity.dart';
 import 'new/spu_search_entity.dart';
 import 'new/spus_entity.dart';
+import 'new/wsku_entity.dart';
 
 class EntityFactory {
   static T generateOBJ<T>(dynamic json) {
@@ -106,6 +107,9 @@ class EntityFactory {
     }
     else if(T.toString() == 'CommentEntity'){
       return CommentEntity.fromJson(json) as T;
+    }
+    else if(T.toString() == 'WskuEntity'){
+      return WskuEntity.fromJson(json) as T;
     }
 
     else {

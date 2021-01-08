@@ -90,7 +90,7 @@ class SwiperDiy extends StatelessWidget{
     for(BrandsModel brandsModel in goodsModleDataList){
       if(brandsModel.id.toString() == id){
         final String incategory = brandsModel.incategory;
-        final Map<String, String> p = {'id':id,'incategory':incategory};
+        final Map<String, String> p = {'name':brandsModel.name,'id':id,'incategory':incategory};
         Routes.instance.navigateToParams(context,Routes.product_items_page,params: p);
         return;
       }

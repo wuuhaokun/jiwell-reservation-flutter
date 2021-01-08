@@ -62,7 +62,7 @@ class _FeaturesMultiPopupState extends State<FeaturesMultiPopup> {
               leading: Container(
                 width: 40,
                 alignment: Alignment.center,
-                child: const Icon(Icons.shopping_cart),
+                child: const Icon(Icons.library_add),
               ),
             );
           },

@@ -3,11 +3,14 @@ import 'dart:io';
 
 
 import 'package:flutter/material.dart';
+import 'package:jiwell_reservation/dao/new/comment_dao.dart';
+import 'package:jiwell_reservation/models/new/comment_entity.dart';
+import 'package:jiwell_reservation/page/comment/utils/date_util.dart';
 
-import 'Utils/date_util.dart';
-import 'model/comment_model.dart';
+// import 'Utils/date_util.dart';
+//import 'model/comment_model.dart';
 import 'common/constant.dart';
-
+import 'package:jiwell_reservation/common.dart';
 
 class Choice {
   const Choice({this.choiceName, this.choiceValue});
@@ -25,9 +28,9 @@ const List<Choice> choices = const <Choice>[
 ];
 
 class CommentPage extends StatefulWidget {
-  //final String themeId;
+  final String supId;
 
-  //CommentPage({Key key, this.themeId}) : super(key: key);
+  CommentPage({Key key, this.supId}) : super(key: key);
   @override
   _CommentPageState createState() => _CommentPageState();
   // @override
@@ -37,6 +40,8 @@ class CommentPage extends StatefulWidget {
   //   //presenter.init();
   //   return view;
   // }
+  // final Map<String, dynamic> p = {'supId':spuJsonString};
+  // Routes.instance.navigateToParams(context,Routes.Product_Spec_page,params: p);
 }
 
 class _CommentPageState extends State<CommentPage>  {
@@ -83,18 +88,28 @@ class _CommentPageState extends State<CommentPage>  {
     _datas.add(shortCommentType);
   }
 
-  Future<Null> _refreshData() {
+  Future<Null> _refreshData() async {
     _datas.clear();
 
-    _initData();
+    _initData();//
 
     final Completer<Null> completer = new Completer<Null>();
+    final CommentEntity entity = await CommentDao.listFetch(AppConfig.token, int.parse(widget.supId) );
+    if(entity != null && entity.commentModellList != null && entity.commentModellList.length > 0){
+      _shortComments = entity.commentModellList;
+      _longComments = entity.commentModellList;
+      _shortCommentsLength = entity.commentModellList.length;
+      _longCommentsLength = entity.commentModellList.length;
+      int i = 0;
+      setState(() {
 
+      });
+    }
     // _commentPresenter.loadLongComments(widget.themeId);
     //
     // _commentPresenter.loadShortComments(widget.themeId);
 
-    completer.complete(null);
+    //completer.complete(null);
 
     return completer.future;
   }
@@ -217,7 +232,7 @@ class _CommentPageState extends State<CommentPage>  {
   }
 
   Widget _buildContentItem(CommentModel item) {
-    String time = DateUtil.formatDate(item.time * 1000);
+    String time = DateUtil.formatDate(item.publishtime * 1000);
     return new InkWell(
       child: new Padding(
         padding: const EdgeInsets.only(left: 12.0, top: 12.0, right: 12.0),
@@ -232,7 +247,7 @@ class _CommentPageState extends State<CommentPage>  {
                 ),
                 new Padding(
                   padding: const EdgeInsets.only(left: 12.0, right: 12.0),
-                  child: new Text('${item.author}',
+                  child: new Text('${item.nickname}',
                       style: new TextStyle(
                         fontSize: 16.0,
                         color: Colors.black,
@@ -252,7 +267,7 @@ class _CommentPageState extends State<CommentPage>  {
                           size: 18.0,
                         ),
                         new Text(
-                          '(${item.likes})',
+                          '(${item.thumbup})',
                           style: new TextStyle(color: Colors.grey),
                         )
                       ],

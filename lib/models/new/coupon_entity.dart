@@ -15,7 +15,7 @@ class CouponEntity {
 }
 
 class CouponModel {
-  String id;
+  int id;
   int type;
   String name;
   int platform;
@@ -37,7 +37,7 @@ class CouponModel {
   this.minPoint,this.startTime,this.endTime,this.useType,this.note,
   this.publishCount,this.useCount,this.receiveCount,this.enableTime,this.code,this.memberLevel});
   CouponModel.fromJson(Map<String, dynamic> data) {
-    id = (data['id']??'');
+    id = (data['id']??-1);
     type = (data['type']??-1);
     name = (data['name']??'');
     platform = (data['platform']??-1);
@@ -52,7 +52,7 @@ class CouponModel {
     publishCount = (data['publishCount']??-1);
     useCount = (data['useCount']??-1);
     receiveCount = (data['receiveCount']??-1);
-    enableTime = (data['enableTime']??"");
+    enableTime = (data['enableTime']??-1);
     code = (data['code']??'');
     memberLevel = (data['memberLevel']??-1);
   }

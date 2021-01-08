@@ -15,6 +15,7 @@ import 'package:jiwell_reservation/view/app_topbar.dart';
 import 'package:jiwell_reservation/view/customize_appbar.dart';
 
 import '../../common.dart';
+import '../../res/colours.dart';
 import '../load_state_layout.dart';
 import 'coupon/widgets/abutton.dart';
 import 'coupon/widgets/coupon_row.dart';
@@ -149,15 +150,15 @@ class _UseCouponPageState extends State<UseCouponPage> {
             bottom: 0,
             left: 0,
             child: Container(
-              color: hex('#fff'),
+              color: Colours.white,
               alignment: Alignment.center,
               padding: EdgeInsets.only(bottom: bottom, top: bottom/2),
               width: MediaQuery.of(context).size.width,
               child: AButton.normal(
                   width: 300,
                   child: Text('保存'),
-                  color: hex('#fff'),
-                  bgColor: rgba(144, 192, 239, 1),
+                  color: Colours.white,
+                  bgColor: Colours.blue_1,
                   onPressed: () => {}
               ),
             ),
@@ -221,7 +222,7 @@ class _UseCouponPageState extends State<UseCouponPage> {
     List<Widget> couponRows = <Widget>[];
     couponlist.forEach((v) {
       CouponHistoryDetailModel couponHistoryDetailModel = v;
-      couponRows.add(CouponRow(couponHistoryDetailModel.couponModel));
+      couponRows.add(CouponRow(couponHistoryDetailModel.couponModel,true));
     });
     return couponRows;
   }

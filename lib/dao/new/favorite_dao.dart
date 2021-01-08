@@ -64,7 +64,7 @@ class FavoriteDao{
   }
 
   static Future<bool> isFavoriteFetch(String token, int userId,int spuId) async{
-    const String FAVORITE_URL = '$JIWELL_SERVER_HOST/favorite/collection/isFavorite/';
+    const String FAVORITE_URL = '$JIWELL_SERVER_HOST/favorite/collection/isCollection/';
     try {
       final String headerToken = 'Bearer '+ token;
       final RequestOptions options = RequestOptions(headers: {'Authorization':headerToken,'content-type':'application/json'},connectTimeout: 5000);

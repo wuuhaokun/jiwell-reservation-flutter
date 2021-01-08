@@ -14,7 +14,7 @@ class SubListViewBrands extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: AppSize.height(480),
+        height: AppSize.height(290),
         color:Colors.white,
         margin: const EdgeInsets.only(top: 5.0),
         padding:const EdgeInsets.all(3.0),
@@ -56,7 +56,7 @@ class SubListViewBrands extends StatelessWidget {
     BrandsModel brandsModel = goodsModleDataList[i];
     final String id = brandsModel.id.toString();
     final String incategory = brandsModel.incategory;
-    final Map<String, String> p = {'id':id,'incategory':incategory};
+    final Map<String, String> p = {'name':brandsModel.name,'id':id,'incategory':incategory};
     //Routes.instance.navigateToParams(context,Routes.PRODUCT_DETAILS,params: p);
     Routes.instance.navigateToParams(context,Routes.product_items_page,params: p);
   }

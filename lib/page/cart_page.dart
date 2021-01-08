@@ -28,7 +28,6 @@ class CartPage extends StatefulWidget {
   @override
   _CartPageState createState() => _CartPageState();
 }
-
 class _CartPageState extends State<CartPage>  {
   LoadState _layoutState = LoadState.State_Loading;
   List<GoodsModel> goodsModels = [];
@@ -179,7 +178,7 @@ class _CartPageState extends State<CartPage>  {
             Positioned(
               bottom:  AppSize.height(150.0),
               left: 0,
-              child:_useCouponView(title:'我的優惠',con:Icon(MyIcons.addressholder),onGoCouponCallback:() {
+              child:_useCouponView(title:'我的優惠',con:Icon(MyIcons.youhuiquanholder),onGoCouponCallback:() {
                 Routes.instance.navigateTo(context, Routes.use_coupon_page);
                 return;
               }),

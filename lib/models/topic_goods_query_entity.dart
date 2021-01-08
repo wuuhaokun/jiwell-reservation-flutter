@@ -3,7 +3,7 @@ class TopicGoodsQueryEntity {
   TopicGoodsQueryEntity({this.topicGoods});
   TopicGoodsQueryEntity.fromJson(Map<String, dynamic> json) {
     if (json['data'] != null) {
-      topicGoods = new List<TopicGoodsListModel>();
+      topicGoods = <TopicGoodsListModel>[];
 //			print(goods.runtimeType);
       (json['data'] as List).forEach((v) {
         topicGoods.add(new TopicGoodsListModel.fromJson(v));

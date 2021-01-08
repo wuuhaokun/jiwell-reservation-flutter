@@ -117,7 +117,7 @@ class _ProductDetailsState extends State<ProductDetails>  {
   // ignore: avoid_void_async
   void loadData() async {
     if (mounted) {
-      final DetailsEntity entity = await DetailsDao.fetch(widget.id.toString());
+      final DetailsEntity entity = await DetailsDao.fetch(widget.id);
       if (entity?.goods != null) {
         goodsModel = entity.goods.goodsModelDetail;
         urls.clear();
@@ -140,7 +140,7 @@ class _ProductDetailsState extends State<ProductDetails>  {
 
   }
 
-  List<String> urls = List();
+  List<String> urls = [];
 
   @override
   Widget build(BuildContext context) {

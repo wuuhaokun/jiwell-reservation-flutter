@@ -45,8 +45,9 @@ class SubItemGoods extends StatelessWidget {
 
   void onItemClick(BuildContext context,int i){
    final String id = goodsModleDataList[i].skuId;
+
    // ignore: always_specify_types
-   final Map<String, String> p = {'id':id};
+   final Map<String, String> p = {'name':goodsModleDataList[i].name,'id':id};
    //Routes.instance.navigateToParams(context,Routes.PRODUCT_DETAILS,params: p);
    Routes.instance.navigateToParams(context,Routes.product_items_page,params: p);
   }

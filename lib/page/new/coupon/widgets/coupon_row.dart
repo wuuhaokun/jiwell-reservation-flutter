@@ -7,8 +7,9 @@ import 'package:jiwell_reservation/utils/date_time_utils.dart';
 
 class CouponRow extends StatelessWidget {
   CouponModel couponModel;
-  CouponRow(this.couponModel);
-
+  bool idCheckShow = false;
+  CouponRow(this.couponModel,this.idCheckShow);
+  bool isCheck = false;
   // const CouponRow({
   //   Key key,
   // }) : super(key: key);
@@ -72,29 +73,42 @@ class CouponRow extends StatelessWidget {
                             ),),
                             Container(
                               margin: EdgeInsets.only(top: 7),
-                              child: Text('有效期至'+ dateTimeUtils.convertingTimestamp(couponModel.enableTime), style: TextStyle(
+                              child: Text('有效期至'+ dateTimeUtils.convertingTimestamp(couponModel.endTime), style: TextStyle(
                                 color: rgba(166, 166, 166, 1),
                                 fontSize: 12
                               ),),
                             )
                           ],
                         ),
-
-                        // right
-                        Container(
+                        (idCheckShow?Container(
                           width: 20,
                           height: 20,
                           child: Transform.scale(
                             scale: .8,
                             child: Checkbox(
                               activeColor: rgba(136, 175, 213, 1),
-                              value: true, 
+                              value: isCheck,
                               onChanged: (flag) {
-
+                                isCheck = !isCheck;
+                                  //item.isCheck=val;
+                                  //eventBus.fire(GoodsNumInEvent('state'));
                               },
                             ),
                           ),
-                        ),
+                        ):Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+                              Text('使用規則', style: TextStyle(
+                                fontSize: 10,
+                                color: rgba(166, 166, 166, 1)
+                              ),),
+                              icontubiao3(color: rgba(153, 153, 153, 1))
+                              //const Icon(Icons.text_snippet) //text_snippet
+                            ],
+                          ),
+                        )),
+
                       ],
                     ),
                   )
@@ -105,15 +119,16 @@ class CouponRow extends StatelessWidget {
             Positioned(
               right: 15,
               bottom: 5,
-              child: Container(
+              child:
+              Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    Text('使用規則', style: TextStyle(
-                      fontSize: 10,
-                      color: rgba(166, 166, 166, 1)
-                    ),),
-                    icontubiao3(color: rgba(153, 153, 153, 1))
+                    // Text('使用規則', style: TextStyle(
+                    //   fontSize: 10,
+                    //   color: rgba(166, 166, 166, 1)
+                    // ),),
+                    // icontubiao3(color: rgba(153, 153, 153, 1))
                   ],
                 ),
               ),

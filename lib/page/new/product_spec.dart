@@ -299,6 +299,8 @@ class _ProductSpecState extends State<ProductSpec>  {
     return list;
   }
 
+
+
   ///返回内容
   Widget _getContent() {
     if (_specificationsEntity == null) {
@@ -750,4 +752,5 @@ class _ProductSpecState extends State<ProductSpec>  {
         }, // Called when the user dismissed the dialog (either by taping outside or by pressing the "back" button).
     );
   }
+
 }

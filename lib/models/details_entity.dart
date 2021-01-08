@@ -44,10 +44,11 @@ class SkuModel{
   // ignore: non_constant_identifier_names
   bool none_sku;
   int price;
+	String images;
 	List<TreeModel> treeModel;
 	List<listModel> listModels;
 // ignore: sort_constructors_first, non_constant_identifier_names
-	SkuModel({this.hide_stock,this.none_sku,this.price,this.treeModel,this.listModels});
+	SkuModel({this.hide_stock,this.none_sku,this.price,this.images,this.treeModel,this.listModels});
 // ignore: sort_constructors_first
 	SkuModel.fromJson(Map<String, dynamic> json){
 		if(json['hide_stock'] != null) {
@@ -71,6 +72,8 @@ class SkuModel{
 			final int hh =  json['price'];
 			print(hh);
 		}
+
+		//images = (json['images'] != null??'');
 
 //		List<Map> dataListTree= (json['tree'] as List).cast();
 //		treeModel = List<TreeModel>();
