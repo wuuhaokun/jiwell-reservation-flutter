@@ -453,11 +453,15 @@ class BrandsThemeCard extends StatelessWidget {
   final String title;
   final String imgUrl;
   final String descript;
+  final String price;
+  final String number;
   // ignore: sort_constructors_first
   const BrandsThemeCard({
     this.title,
     this.imgUrl,
-    this.descript
+    this.descript,
+    this.price,
+    this.number,
   });
 
   @override
@@ -510,29 +514,59 @@ class BrandsThemeCard extends StatelessWidget {
                             maxLines: 2,
                             style: ThemeTextStyle.cardNumStyle,
                           ),
-                          // Text(
-                          //   price,
-                          //   textAlign: TextAlign.left,
-                          //   style: ThemeTextStyle.cardPriceStyle,
-                          // ),
+                          Text(
+                            price,
+                            textAlign: TextAlign.left,
+                            style: ThemeTextStyle.cardPriceStyle,
+                          ),
                         ]
                     ),
 
                   ),
                   flex: 3,
                 ),
-                // Expanded(
-                //   child: Container(
-                //     alignment:Alignment.center,
-                //     height: AppSize.height(232),
-                //     child:Text(
-                //       number,
-                //       textAlign: TextAlign.center,
-                //       style: ThemeTextStyle.cardTitleStyle,
-                //     ),
-                //   ),
-                //   flex: 1,
-                // )
+                Expanded(
+                  // child: Container(
+                  //   alignment:Alignment.center,
+                  //   //height: AppSize.height(248),
+                  //   margin: const EdgeInsets.only(top: 10.0),
+                  //   child:Text(
+                  //     number,
+                  //     textAlign: TextAlign.center,
+                  //     //style: ThemeTextStyle.cardTitleStyle,
+                  //       style: ThemeTextStyle.cardNumStyle
+                  //   ),
+                  // ),
+                  child: Container(
+                    margin: const EdgeInsets.only(left: 20.0, top: 10.0),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            number,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                            textAlign: TextAlign.left,
+                            style: ThemeTextStyle.cardTitleStyle,
+                          ),
+                          Text(
+                            '',
+                            textAlign: TextAlign.left,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            style: ThemeTextStyle.cardNumStyle,
+                          ),
+                          Text(
+                            '',
+                            textAlign: TextAlign.left,
+                            style: ThemeTextStyle.cardNumStyle,
+                          ),
+                        ]
+                    ),
+
+                  ),
+                  flex: 1,
+                )
               ],
             ),
             Container(

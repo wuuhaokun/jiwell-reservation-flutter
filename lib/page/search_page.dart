@@ -75,7 +75,6 @@ class _SearchPageState extends State<SearchPage>  with AutomaticKeepAliveClientM
   void initState() {
     _isLoading = true;
     loadData();
-//    _doSearch('三星');
     super.initState();
   }
   // ignore: avoid_void_async
@@ -104,8 +103,11 @@ class _SearchPageState extends State<SearchPage>  with AutomaticKeepAliveClientM
 
   // ignore: avoid_void_async
   void loadData() async{
-    _isLoading = false;
-    _layoutState = LoadState.State_Empty;
+    setState(() {
+      _isLoading = false;
+      _layoutState = LoadState.State_Empty;
+      goodsList.clear();
+    });
     return;
 //    final HotEntity entity = await HotGoodsDao.fetch();
 //    if(entity?.goods != null){

@@ -195,7 +195,7 @@ class CartItem extends StatelessWidget {
                 //   imageUrl: imgUrl+item.image,
                 //   fit: BoxFit.cover,
                 // )
-               child: ImageUtils.getCachedNetworkImage(imgUrl+item.image,BoxFit.cover,null),),
+              child: ImageUtils.getCachedNetworkImage(imgUrl+item.image,BoxFit.cover,null),),
 
 //        child:Image.network(
 //          imgUrl+item.pic,

@@ -29,10 +29,10 @@ class SubItemBrands extends StatelessWidget {
           },
           child: BrandsThemeCard(
             title: goodsModleDataList[i].name,
-            //price:'¥'+priceDouble.toStringAsFixed(2) ,
+            price:'' ,
             imgUrl:imgUrl+goodsModleDataList[i].image,
             descript: goodsModleDataList[i].title,
-            //number: 'x'+goodsModleDataList[i].stock.toString(),
+            number: '2.1km',
           )
       )
       );

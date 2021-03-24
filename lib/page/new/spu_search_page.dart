@@ -106,8 +106,10 @@ class _SpuSearchPageState extends State<SpuSearchPage>  with AutomaticKeepAliveC
 
   // ignore: avoid_void_async
   void loadData() async{
-    _isLoading = false;
-    _layoutState = LoadState.State_Empty;
+    setState(() {
+      _isLoading = false;
+      _layoutState = LoadState.State_Empty;
+    });
     return;
 //    final HotEntity entity = await HotGoodsDao.fetch();
 //    if(entity?.goods != null){

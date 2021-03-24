@@ -103,8 +103,8 @@ class CouponRow extends StatelessWidget {
                                 fontSize: 10,
                                 color: rgba(166, 166, 166, 1)
                               ),),
-                              icontubiao3(color: rgba(153, 153, 153, 1))
-                              //const Icon(Icons.text_snippet) //text_snippet
+                              //icontubiao3(color: rgba(153, 153, 153, 1))
+                              const Icon(Icons.text_snippet) //text_snippet
                             ],
                           ),
                         )),

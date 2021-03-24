@@ -159,7 +159,7 @@ class _ShippingEditAddressPageState extends State<ShippingEditAddressPage>  {
   Widget _buildEditText(
       {double length,
       String title,
-      String hint,
+      String hint, TextInputType keyboardType,
       TextEditingController controller,
       OnChangedCallback onChangedCallback}) {
     return Container(
@@ -177,7 +177,7 @@ class _ShippingEditAddressPageState extends State<ShippingEditAddressPage>  {
               ),
               Expanded(
                 child: TextField(
-                  keyboardType: TextInputType.number,
+                  keyboardType: keyboardType,
 
                   decoration: InputDecoration(
                     border: InputBorder.none,
